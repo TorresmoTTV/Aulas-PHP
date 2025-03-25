@@ -14,7 +14,7 @@
     (construtor da linguagem), então
     não é obrigado usar parênteses
     */
-    
+
     echo "echo - Exibe uma ou mais strings.
     echo não é uma função atualmente
     (construtor da linguagem), então
