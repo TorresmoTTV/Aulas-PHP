@@ -19,7 +19,7 @@
             }
         }
     
-        return "A soma dos números pares entre $ini e $fim é $soma.";
+        return "A soma dos números pares entre $num1 e $num2 é $soma.";
     }
 
     echo somaPares(2,10);
