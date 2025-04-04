@@ -6,17 +6,17 @@ class AlunoModel
     protected $cpf;
     protected $idade;
     protected $email;
-    protected $id;
+    protected $idAluno;
 
 
-    function __construct($nome, $matricula, $cpf, $idade, $email, $id)
+    function __construct($nome, $matricula, $cpf, $idade, $email, $idAluno)
     {
         $this->nome = $nome;
         $this->matricula = $matricula;
         $this->cpf = $cpf;
         $this->idade = $idade;
         $this->email = $email;
-        $this->id = $id;
+        $this->idAluno = $idAluno;
 
     }
 
@@ -116,7 +116,7 @@ class AlunoModel
     {
         include '../DAO/alunodao.php';
         $model = new AlunoDAO(null);
-        return $model->resgatarAlunosPorId($idAluno);
+        return $model->resgataPorID($idAluno);
     }
 
     public function alterarAluno(AlunoModel $aluno)

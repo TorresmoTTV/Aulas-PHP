@@ -27,9 +27,9 @@
         $idade="";
         $id="";
         $email="";
-        $operacao="";
+        $operacao="Incluir";
     }
-    print"<form method='post' action='../controller/alunocontroller.php'";
+    print"<form method='post' action='../controller/processaaluno.php'>";
     print"<label for='nome'>Nome:</label>";
     print"<input type='text' name='nome' value=".$nome."><br>";
     print"<label for='matricula'>Matrícula:</label>";
@@ -40,8 +40,8 @@
     print"<input type='number' name='idade' value=".$idade."><br>";
     print"<label for='email'>E-mail</label>";
     print"<input type='text' name='email' value=".$email."><br>";
-    print"<input tryp='hidden' name='idAluno' value='$id'><br>";
-    print"<input tryp='hidden' name='op' value='$operacao'><br>";
+    print"<input type='hidden' name='idAluno' value='$id'><br>";
+    print"<input type='hidden' name='op' value='$operacao'><br>";
     print"<input type='submit' value='$operacao'>";
     print"</form>";
 

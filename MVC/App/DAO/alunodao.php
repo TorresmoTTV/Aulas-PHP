@@ -1,13 +1,13 @@
 <?php
-class Alunodao
-{
-    public function cadastrarAluno(AlunoModel $aluno)
-    {
-        include_once 'conexao.php';
+
+class AlunoDAO {
+
+    public function cadastrarAluno(AlunoModel $aluno) {
+        include_once 'Conexao.php';
         $conex = new Conexao();
         $conex->fazConexao();
         $sql = "INSERT INTO aluno (nomeAlu, matriculaAlu, cpfAlu, idadeAlu, emailAlu)
-                    VALUES (:nome, :matricula, :cpf, :idade, :email)";
+                VALUES (:nome, :matricula, :cpf, :idade, :email)";
         $stmt = $conex->conn->prepare($sql);
         $stmt->bindValue(':nome', $aluno->getNome());
         $stmt->bindValue(':matricula', $aluno->getMatricula());
@@ -20,67 +20,59 @@ class Alunodao
         } else {
             echo "<script>alert('Erro: Não foi possível realizar o cadastro');</script>";
         }
-        echo "<scriot>location.href='../controller/processaaluno.php?op=Listar';</script>'";
+        echo "<script>location.href='../controller/processaAluno.php?op=Listar';</script>";
     }
 
-    public function listarAlunos()
-    {
-        include_once "conexao.php";
+    public function listarAlunos() {
+        include_once 'Conexao.php';
         $conex = new Conexao();
         $conex->fazConexao();
         $sql = "SELECT * FROM aluno ORDER BY idAlu";
         return $conex->conn->query($sql);
     }
 
-    public function resgatarAlunosPorId($idAluno)
-    {
-        include_once "conexao.php";
+    public function resgataPorID($idAluno) {
+        include_once 'Conexao.php';
         $conex = new Conexao();
         $conex->fazConexao();
         $sql = "SELECT * FROM aluno WHERE idAlu='$idAluno'";
         return $conex->conn->query($sql);
     }
 
-    public function alterarAluno(AlunoModel $aluno)
-    {
-        include_once "conexao.php";
+    public function alterarAluno(AlunoModel $aluno) {
+        include_once 'Conexao.php';
         $conex = new Conexao();
         $conex->fazConexao();
         $sql = "UPDATE aluno SET nomeAlu = :nome, matriculaAlu = :matricula, cpfAlu = :cpf,
-                    idadeAlu = :idade, emailAlu = :email WHERE idAlu = :id";
+                idadeAlu = :idade, emailAlu = :email WHERE idAlu = :id";
         $stmt = $conex->conn->prepare($sql);
-        $stmt->bindValue(":id", $aluno->getId());
-        $stmt->bindValue(":nome", $aluno->getNome());
-        $stmt->bindValue(":matricula", $aluno->getMatricula());
-        $stmt->bindValue(":cpf", $aluno->getCpf());
-        $stmt->bindValue(":idade", $aluno->getIdade());
-        $stmt->bindValue(":email", $aluno->getEmail());
+        $stmt->bindValue(':id', $aluno->getID());
+        $stmt->bindValue(':nome', $aluno->getNome());
+        $stmt->bindValue(':matricula', $aluno->getMatricula());
+        $stmt->bindValue(':cpf', $aluno->getCpf());
+        $stmt->bindValue(':idade', $aluno->getIdade());
+        $stmt->bindValue(':email', $aluno->getEmail());
         $res = $stmt->execute();
-        if ($res) 
-        {
-            echo"<script>alert('Registro Alterado com sucesso');</script>";
-        } else
-        {
-            echo"<script>alert('Erro: Não foi possível alterar o cadastro');</script>";
+        if ($res) {
+            echo "<script>alert('Registro Alterado com sucesso');</script>";
+        } else {
+            echo "<script>alert('Erro: Não foi possível alterar o cadastro');</script>";
         }
-        echo"<script>location.href'../controller/processaaluno.php?op=Listar';</script>";
+        echo "<script>location.href='../controller/processaAluno.php?op=Listar';</script>";
     }
 
-    public function excluirAluno($idAluno)
-    {
-        include_once "conexao.php";
+    public function excluirAluno($idAluno) {
+        include_once 'Conexao.php';
         $conex = new Conexao();
         $conex->fazConexao();
-        $sql = "DELETE FROM aluno WHERE idAlu=$idAluno";
-        $res = $conex->conn->prepare($sql);
-        if ($res)
-        {
+        $sql = "DELETE FROM aluno WHERE idAlu='$idAluno'";
+        $res = $conex->conn->query($sql);
+        if ($res) {
             echo "<script>alert('Exclusão realizada com sucesso!');</script>";
-        } else
-        {
+        } else {
             echo "<script>alert('Não foi possível excluir o usuário!');</script>";
         }
-        echo "<script>location.href='../controller/processaaluno.php?op=Listar';</script>";
+        echo "<script>location.href='../controller/processaAluno.php?op=Listar';</script>";
     }
 }
 ?>
