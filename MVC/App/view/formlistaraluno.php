@@ -31,9 +31,13 @@
             print "<td>".$row->idadeAlu."</td>";
             print "<td>".$row->emailAlu."</td>";
             print "<td>";
+            
             print "<button onclick=\"location.href='../view/formAluno.php?op=Alterar&idAluno=".$row->idAlu."';\">Alterar</button>";
-            print "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')) { location.href = '../controller/processaAluno.php?op=Excluir&idAluno=".$row->idAlu."'; } else { false; }\">Excluir</button>";
-            print "</td>";
+            print "<button onclick=\"if(confirm('Tem certeza que deseja excluir?')) {
+            location.href = '../controller/processaAluno.php?op=Excluir&idAluno=".$row->idAlu."'; }
+            else { false; }\">Excluir</button>
+            </td>";
+            echo "</form>";
             print "</tr>";
         }
         print "</table>";

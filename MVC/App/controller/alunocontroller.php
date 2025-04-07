@@ -4,7 +4,7 @@ class AlunoController
     public static function cadastrarAluno($nome, $matricula, $cpf, $idade, $email)
     {
         include '../model/alunomodel.php';
-        $aluno = new AlunoModel( $nome, $matricula, $cpf, $idade, $email, $null);
+        $aluno = new AlunoModel($nome, $matricula, $cpf, $idade, $email, $null);
         $aluno->cadastrarAluno($aluno);
     }
 
@@ -29,11 +29,11 @@ class AlunoController
         $aluno->alterarAluno($aluno);
     }
 
-    public static function excluirAluno($idAluno)
+    public static function excluirAluno($id)
     {
         include '../model/alunomodel.php';
-        $model = new AlunoModel(null, null, null, null, null, null);
-        $aluno->excluirAluno($idAluno);
+        $aluno = new AlunoModel(null, null, null, null, null, null);
+        $aluno->excluirAluno($id);
     }
 }
 ?>

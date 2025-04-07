@@ -6,18 +6,17 @@ class AlunoModel
     protected $cpf;
     protected $idade;
     protected $email;
-    protected $idAluno;
+    protected $id;
 
 
-    function __construct($nome, $matricula, $cpf, $idade, $email, $idAluno)
+    function __construct($nome, $matricula, $cpf, $idade, $email, $id)
     {
         $this->nome = $nome;
         $this->matricula = $matricula;
         $this->cpf = $cpf;
         $this->idade = $idade;
         $this->email = $email;
-        $this->idAluno = $idAluno;
-
+        $this->id = $id;
     }
 
     public function getNome()
@@ -90,13 +89,6 @@ class AlunoModel
         return $this->id;
     }
 
-    /**
-     * @param $id
-     */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
     public function cadastrarAluno(AlunoModel $aluno)
     {

@@ -43,10 +43,10 @@ function alterar()
 
 function excluir()
 {
-    $id = $_POST['idAluno'];
+    $idAluno = $_REQUEST['idAluno'];
     include 'alunocontroller.php';
     $contr = new AlunoController();
-    $contr->excluirAluno($id);
+    $contr->excluirAluno($idAluno);
 }
 
 function listar()
