@@ -33,7 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <?php if (isset ($error)):?>
         <p style="color:red;"><?php echo $error;?></p>
     <?php endif;?>
-    <form action="POST">
+    <form method="POST">
         <label>Nome do usuário</label>
         <input type="text" name="username" required>
         <br>
